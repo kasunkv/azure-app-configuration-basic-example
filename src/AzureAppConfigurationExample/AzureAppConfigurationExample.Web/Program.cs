@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 using Microsoft.Extensions.Logging;
 
 namespace AzureAppConfigurationExample.Web
@@ -18,7 +19,13 @@ namespace AzureAppConfigurationExample.Web
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+            WebHost
+                .CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, config) =>
+                {
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfiguration"]);
+                })
                 .UseStartup<Startup>();
     }
 }
