@@ -1,4 +1,4 @@
-﻿namespace AzureAppConfigurationExample.Web.Models
+﻿namespace BasicExample.Models
 {
     public class HomeViewModel
     {

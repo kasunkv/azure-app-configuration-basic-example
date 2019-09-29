@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using AzureAppConfigurationExample.Web.Models;
+using BasicExample.Models;
 using Microsoft.Extensions.Configuration;
 
-namespace AzureAppConfigurationExample.Web.Controllers
+namespace BasicExample.Controllers
 {
     public class HomeController : Controller
     {
